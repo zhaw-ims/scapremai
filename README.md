@@ -59,5 +59,12 @@ cmake ../src/cpp -G "Visual Studio 16"
 cmake --build . --config Release
 ```
 
+We check the formatting with clang-format. Please install clang-format separately.
+The following build target fails if the formatting is incorrect. Always run it before
+committing:
+```bash
+make format
+```
+
 Please see https://docs.conan.io/en/latest/getting_started.html for more information on Conan.
 
