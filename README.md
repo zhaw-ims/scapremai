@@ -17,12 +17,12 @@ tools will be installed (such as conan):
 
 ```bash
 cd {repository root}
-python3 -m venv cpp-dev-venv
+python3 -m venv venv-dev-cpp
 ```
 
 Activate the virtual environment (on Linux):
 ```
-source venv/bin/activate
+source venv-dev-cpp/bin/activate
 ```
 
 Install development tools:
@@ -68,3 +68,32 @@ make format
 
 Please see https://docs.conan.io/en/latest/getting_started.html for more information on Conan.
 
+Mapry
+-----
+Mapry schemas go into `src/mapry/`.
+
+The generated code is checked into the repository. These steps are only necessary
+if you want to re-generate the code (*e.g.*, if a schema needs to change).
+
+To generate the code, first create a Python virtual environment where development
+tools will be installed:
+
+```bash
+cd {repository root}
+python3 -m venv venv-dev-mapry
+```
+
+Activate the virtual environment (on Linux):
+```
+source venv-dev-mapry/bin/activate
+```
+
+Install all the development tools:
+```bash
+pip3 install -r src/mapry/python-dev-requirements.txt
+```
+
+Generate the code for all the languages:
+```bash
+src/mapry/generate.py
+```

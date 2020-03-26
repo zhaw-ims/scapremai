@@ -1,2 +1,4 @@
-cpp-dev-venv/
+venv-dev-cpp/
+venv-dev-mapry/
 build/
+.idea/
