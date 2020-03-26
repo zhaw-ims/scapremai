@@ -1,0 +1,61 @@
+{
+  "name": "Sampling",
+  "description": "specifies the sampling of the physical model.",
+  "cpp": {
+    "namespace": "scapremai::mapried::sampling",
+    "path_as": "boost::filesystem::path",
+    "optional_as": "boost::optional",
+    "datetime_library": "date.h"
+  },
+  "classes": [
+    {
+      "name": "Input",
+      "description": "defines an input to the model.",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "identifies the input in the model."
+        },
+        "range_begin": {
+          "type": "float",
+          "description": "indicates the begining of the value range."
+        },
+        "range_end": {
+          "type": "float",
+          "description": "indicates the end of the value range."
+        }
+      }
+    }
+  ],
+  "embeds": [
+    {
+      "name": "Output",
+      "description": "defines the outcome (remaining useful life, RUL).",
+      "properties": {
+        "identfier": {
+          "type": "string",
+          "description": "identifies the outcome in the model."
+        },
+        "range_begin": {
+          "type": "float",
+          "description": "indicates the begining of the value range."
+        },
+        "range_end": {
+          "type": "float",
+          "description": "indicates the end of the value range."
+        }
+      }
+    }
+  ],
+  "properties": {
+    "output": {
+      "type": "Output",
+      "description": "specifies the outcome variable (remaining useful life, RUL)."
+    },
+    "bins": {
+      "type": "integer",
+      "description": "specifies the number of sampling bins.",
+      "minimum": 1
+    }
+  }
+}
