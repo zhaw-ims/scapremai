@@ -2,3 +2,4 @@ venv-dev-cpp/
 venv-dev-mapry/
 build/
 .idea/
+src/cpp/cmake-build-debug/
