@@ -31,7 +31,7 @@ struct Output {
 
 // defines an input to the model.
 class Input {
-public:
+ public:
   // identifies the instance.
   std::string id;
 

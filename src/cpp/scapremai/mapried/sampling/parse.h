@@ -30,7 +30,7 @@ struct Error {
  * at the initialization.
  */
 class Errors {
-public:
+ public:
   explicit Errors(size_t cap);
 
   /**
@@ -39,7 +39,7 @@ public:
    * You need to reserve the space only if you think there will
    * be an excessive amount of errors (e.g., >1000).
    */
-   void reserve(size_t expected_errors);
+  void reserve(size_t expected_errors);
 
   /**
    * adds an error to the container.
@@ -60,7 +60,7 @@ public:
 
   const std::vector<Error>& get() const;
 
-private:
+ private:
   const size_t cap_;
   std::vector<Error> errors_;
 };

@@ -23,17 +23,11 @@ void Errors::add(const std::string& ref, const std::string& message) {
   }
 }
 
-bool Errors::full() const {
-  return errors_.size() == cap_;
-}
+bool Errors::full() const { return errors_.size() == cap_; }
 
-bool Errors::empty() const {
-  return errors_.empty();
-}
+bool Errors::empty() const { return errors_.empty(); }
 
-const std::vector<Error>& Errors::get() const {
-  return errors_;
-}
+const std::vector<Error>& Errors::get() const { return errors_; }
 
 }  // namespace parse
 

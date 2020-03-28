@@ -17,8 +17,10 @@ endif ()
 
 add_custom_target(
         format
-        COMMAND ${CMAKE_SOURCE_DIR}/run-clang-format.py -r ${CMAKE_SOURCE_DIR}/
+        COMMAND ${CMAKE_SOURCE_DIR}/run-clang-format.py -r ${CMAKE_SOURCE_DIR}/scapremai
 )
+
+include_directories(${CMAKE_SOURCE_DIR})
 
 add_library(scapremai_mapried_sampling
         STATIC

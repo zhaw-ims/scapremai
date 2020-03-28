@@ -24,11 +24,8 @@ namespace jsoncpp {
  * @param [out] target parsed Sampling
  * @param [out] errors encountered during parsing
  */
-void sampling_from(
-  const Json::Value& value,
-  std::string ref,
-  Sampling* target,
-  parse::Errors* errors);
+void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
+                   parse::Errors* errors);
 
 /**
  * parses Output from a JSON value.
@@ -38,11 +35,8 @@ void sampling_from(
  * @param [out] target parsed data
  * @param [out] errors encountered during parsing
  */
-void output_from(
-  const Json::Value& value,
-  std::string ref,
-  Output* target,
-  parse::Errors* errors);
+void output_from(const Json::Value& value, std::string ref, Output* target,
+                 parse::Errors* errors);
 
 /**
  * parses Input from a JSON value.
@@ -52,12 +46,8 @@ void output_from(
  * @param [out] target parsed data
  * @param [out] errors encountered during parsing
  */
-void input_from(
-  const Json::Value& value,
-  std::string ref,
-  Input* target,
-  parse::Errors* errors);
-
+void input_from(const Json::Value& value, std::string ref, Input* target,
+                parse::Errors* errors);
 
 /**
  * serializes Sampling to a JSON value.
@@ -65,8 +55,7 @@ void input_from(
  * @param sampling to be serialized
  * @return JSON value
  */
-Json::Value serialize_sampling(
-  const Sampling& sampling);
+Json::Value serialize_sampling(const Sampling& sampling);
 
 /**
  * serializes Input to a JSON value.
@@ -74,8 +63,7 @@ Json::Value serialize_sampling(
  * @param input to be serialized
  * @return JSON value
  */
-Json::Value serialize_input(
-  const Input& input);
+Json::Value serialize_input(const Input& input);
 
 /**
  * serializes Output to a JSON value.
@@ -83,8 +71,7 @@ Json::Value serialize_input(
  * @param output to be serialized
  * @return JSON value
  */
-Json::Value serialize_output(
-  const Output& output);
+Json::Value serialize_output(const Output& output);
 
 }  // namespace jsoncpp
 
