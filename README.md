@@ -2,11 +2,10 @@ ScaPreMAI - Preliminary
 =======================
 This repo contains preliminary code for the ScaPreMAI project.
 
-Structure
-=========
+Development
+===========
 The code goes into `src/`. We split the code by the language: 
 C++ code goes into `src/cpp/`, Python code into `src/py/` *etc.*
-
 
 C++
 ---
@@ -59,6 +58,15 @@ cmake ../src/cpp -G "Visual Studio 16"
 cmake --build . --config Release
 ```
 
+The default release directory is set to `{repo}/release/`. 
+To release, execute from the build directory:
+```bash
+make install
+``` 
+
+You can overwrite the release directory by supplying `-DCMAKE_INSTALL_PREFIX` 
+to the cmake command.
+
 We check the formatting with clang-format. Please install clang-format separately.
 The following build target fails if the formatting is incorrect. Always run it before
 committing:
@@ -96,4 +104,16 @@ pip3 install -r src/mapry/python-dev-requirements.txt
 Generate the code for all the languages:
 ```bash
 src/mapry/generate.py
+```
+
+Component Tests
+---------------
+Component tests are written in Python and go into `src/py/component_tests`.
+
+The test data of a test case is stored in 
+`test_data/{component test identifier}/{test case}/`.
+
+For example, to execute the component test for the sampler, call:
+```bash
+src/py/component_tests/component_test_sampler.py
 ```

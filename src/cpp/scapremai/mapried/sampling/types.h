@@ -20,7 +20,7 @@ struct Output;
 // defines the outcome (remaining useful life, RUL).
 struct Output {
   // identifies the outcome in the model.
-  std::string identfier;
+  std::string identifier;
 
   // indicates the begining of the value range.
   double range_begin = 0.0;
