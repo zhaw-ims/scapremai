@@ -22,6 +22,10 @@ add_custom_target(
 
 include_directories(${CMAKE_SOURCE_DIR})
 
+IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    SET(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/../../release" CACHE PATH "default install directory" FORCE)
+ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+
 add_library(scapremai_mapried_sampling
         STATIC
         scapremai/mapried/sampling/jsoncpp.cpp
@@ -34,3 +38,5 @@ add_executable(scapremai_sampler scapremai/sampler.cpp)
 target_link_libraries(scapremai_sampler
         scapremai_mapried_sampling
         ${CONAN_LIBS})
+
+install(TARGETS scapremai_sampler DESTINATION bin)

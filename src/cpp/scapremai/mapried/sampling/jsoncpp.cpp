@@ -291,21 +291,21 @@ void output_from(const Json::Value& value, std::string ref, Output* target,
   }
 
   ////
-  // Parse identfier
+  // Parse identifier
   ////
 
-  if (not value.isMember("identfier")) {
-    errors->add(ref, "Property is missing: identfier");
+  if (not value.isMember("identifier")) {
+    errors->add(ref, "Property is missing: identifier");
   } else {
-    const Json::Value& value_0 = value["identfier"];
+    const Json::Value& value_0 = value["identifier"];
     if (not value_0.isString()) {
       constexpr auto expected_but_got("Expected a string, but got: ");
 
-      errors->add(std::string(ref).append("/identfier"),
+      errors->add(std::string(ref).append("/identifier"),
                   message(expected_but_got, strlen(expected_but_got),
                           value_type_to_string(value_0.type())));
     } else {
-      target->identfier = value_0.asString();
+      target->identifier = value_0.asString();
     }
   }
   if (errors->full()) {
@@ -372,7 +372,7 @@ Json::Value serialize_input(const Input& input) {
 Json::Value serialize_output(const Output& output) {
   Json::Value output_as_value;
 
-  output_as_value["identfier"] = output.identfier;
+  output_as_value["identifier"] = output.identifier;
 
   output_as_value["range_begin"] = output.range_begin;
 

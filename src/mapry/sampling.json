@@ -32,7 +32,7 @@
       "name": "Output",
       "description": "defines the outcome (remaining useful life, RUL).",
       "properties": {
-        "identfier": {
+        "identifier": {
           "type": "string",
           "description": "identifies the outcome in the model."
         },

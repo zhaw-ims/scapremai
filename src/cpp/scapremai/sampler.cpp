@@ -39,18 +39,18 @@ int main_impl(const Args& a) {
 
   scapremai::mapried::sampling::Sampling sampling;
   scapremai::mapried::sampling::parse::Errors errors(1024);
-  scapremai::mapried::sampling::jsoncpp::sampling_from(
-      sampling_root, a.sampling_path.string(), &sampling, &errors);
+  scapremai::mapried::sampling::jsoncpp::sampling_from(sampling_root, "#",
+                                                       &sampling, &errors);
 
   if (not errors.empty()) {
     std::vector<std::string> lines;
     lines.reserve(1 + errors.get().size());
     lines.push_back(
-        fmt::format("Failed to parse sampling specification from %s:",
+        fmt::format("Failed to parse sampling specification from {}:",
                     a.sampling_path.string()));
 
     for (const auto& e : errors.get()) {
-      lines.push_back(fmt::format("%s:%s", e.ref, e.message));
+      lines.push_back(fmt::format("{}: {}", e.ref, e.message));
     }
 
     spdlog::critical(boost::algorithm::join(lines, "\n"));
