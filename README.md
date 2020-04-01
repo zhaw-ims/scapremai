@@ -29,8 +29,10 @@ Install development tools:
 pip3 install -r src/cpp/python-dev-requirements.txt
 ```
 
-Since we are using conan to install the dependencies, we need
-to prepare it to use a more modern ABI (*e.g.*, if gcc > 5.1):
+We will use conan to install C++ dependencies. 
+
+If you are working with GCC (*e.g.*, on Ubuntu 18.04), we need
+to prepare conan to use a more modern ABI (*e.g.*, if gcc > 5.1):
 ```bash
 conan profile new default --detect
 conan profile update settings.compiler.libcxx=libstdc++11 default
