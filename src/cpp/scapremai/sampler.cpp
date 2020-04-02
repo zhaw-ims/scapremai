@@ -42,7 +42,7 @@ int main_impl(const Args& a) {
   scapremai::mapried::sampling::jsoncpp::sampling_from(sampling_root, "#",
                                                        &sampling, &errors);
 
-  if (not errors.empty()) {
+  if (!errors.empty()) {
     std::vector<std::string> lines;
     lines.reserve(1 + errors.get().size());
     lines.push_back(
