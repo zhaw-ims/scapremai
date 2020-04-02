@@ -70,11 +70,11 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
     throw std::invalid_argument("Unexpected null errors");
   }
 
-  if (not errors->empty()) {
+  if (!errors->empty()) {
     throw std::invalid_argument("Unexpected non-empty errors");
   }
 
-  if (not value.isObject()) {
+  if (!value.isObject()) {
     constexpr auto expected_but_got("Expected an object, but got: ");
 
     errors->add(ref, message(expected_but_got, strlen(expected_but_got),
@@ -93,7 +93,7 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
 
   if (value.isMember("inputs")) {
     const Json::Value& obj = value["inputs"];
-    if (not obj.isObject()) {
+    if (!obj.isObject()) {
       constexpr auto expected_but_got("Expected an object, but got: ");
 
       errors->add(inputs_ref,
@@ -110,7 +110,7 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
 
   // Pre-allocating class instances is critical.
   // If the pre-allocation failed, we can not continue to parse the instances.
-  if (not errors->empty()) {
+  if (!errors->empty()) {
     return;
   }
 
@@ -152,7 +152,7 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
   // Parse output
   ////
 
-  if (not value.isMember("output")) {
+  if (!value.isMember("output")) {
     errors->add(ref, "Property is missing: output");
   } else {
     const Json::Value& value_0 = value["output"];
@@ -167,11 +167,11 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
   // Parse bins
   ////
 
-  if (not value.isMember("bins")) {
+  if (!value.isMember("bins")) {
     errors->add(ref, "Property is missing: bins");
   } else {
     const Json::Value& value_1 = value["bins"];
-    if (not value_1.isInt64()) {
+    if (!value_1.isInt64()) {
       constexpr auto expected_but_got("Expected an int64, but got: ");
 
       errors->add(std::string(ref).append("/bins"),
@@ -181,7 +181,7 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
       const auto cast_1 = value_1.asInt64();
       bool ok_1 = true;
 
-      if (not(cast_1 >= 1)) {
+      if (!(cast_1 >= 1)) {
         constexpr auto expected_but_got(
             "Expected "
             ">= 1"
@@ -205,7 +205,7 @@ void sampling_from(const Json::Value& value, std::string ref, Sampling* target,
 
 void input_from(const Json::Value& value, std::string ref, Input* target,
                 parse::Errors* errors) {
-  if (not value.isObject()) {
+  if (!value.isObject()) {
     constexpr auto expected_but_got("Expected an object, but got: ");
 
     errors->add(ref, message(expected_but_got, strlen(expected_but_got),
@@ -217,11 +217,11 @@ void input_from(const Json::Value& value, std::string ref, Input* target,
   // Parse identifier
   ////
 
-  if (not value.isMember("identifier")) {
+  if (!value.isMember("identifier")) {
     errors->add(ref, "Property is missing: identifier");
   } else {
     const Json::Value& value_0 = value["identifier"];
-    if (not value_0.isString()) {
+    if (!value_0.isString()) {
       constexpr auto expected_but_got("Expected a string, but got: ");
 
       errors->add(std::string(ref).append("/identifier"),
@@ -239,11 +239,11 @@ void input_from(const Json::Value& value, std::string ref, Input* target,
   // Parse range_begin
   ////
 
-  if (not value.isMember("range_begin")) {
+  if (!value.isMember("range_begin")) {
     errors->add(ref, "Property is missing: range_begin");
   } else {
     const Json::Value& value_1 = value["range_begin"];
-    if (not value_1.isDouble()) {
+    if (!value_1.isDouble()) {
       constexpr auto expected_but_got("Expected a double, but got: ");
 
       errors->add(std::string(ref).append("/range_begin"),
@@ -261,11 +261,11 @@ void input_from(const Json::Value& value, std::string ref, Input* target,
   // Parse range_end
   ////
 
-  if (not value.isMember("range_end")) {
+  if (!value.isMember("range_end")) {
     errors->add(ref, "Property is missing: range_end");
   } else {
     const Json::Value& value_2 = value["range_end"];
-    if (not value_2.isDouble()) {
+    if (!value_2.isDouble()) {
       constexpr auto expected_but_got("Expected a double, but got: ");
 
       errors->add(std::string(ref).append("/range_end"),
@@ -282,7 +282,7 @@ void input_from(const Json::Value& value, std::string ref, Input* target,
 
 void output_from(const Json::Value& value, std::string ref, Output* target,
                  parse::Errors* errors) {
-  if (not value.isObject()) {
+  if (!value.isObject()) {
     constexpr auto expected_but_got("Expected an object, but got: ");
 
     errors->add(ref, message(expected_but_got, strlen(expected_but_got),
@@ -294,11 +294,11 @@ void output_from(const Json::Value& value, std::string ref, Output* target,
   // Parse identifier
   ////
 
-  if (not value.isMember("identifier")) {
+  if (!value.isMember("identifier")) {
     errors->add(ref, "Property is missing: identifier");
   } else {
     const Json::Value& value_0 = value["identifier"];
-    if (not value_0.isString()) {
+    if (!value_0.isString()) {
       constexpr auto expected_but_got("Expected a string, but got: ");
 
       errors->add(std::string(ref).append("/identifier"),
@@ -316,11 +316,11 @@ void output_from(const Json::Value& value, std::string ref, Output* target,
   // Parse range_begin
   ////
 
-  if (not value.isMember("range_begin")) {
+  if (!value.isMember("range_begin")) {
     errors->add(ref, "Property is missing: range_begin");
   } else {
     const Json::Value& value_1 = value["range_begin"];
-    if (not value_1.isDouble()) {
+    if (!value_1.isDouble()) {
       constexpr auto expected_but_got("Expected a double, but got: ");
 
       errors->add(std::string(ref).append("/range_begin"),
@@ -338,11 +338,11 @@ void output_from(const Json::Value& value, std::string ref, Output* target,
   // Parse range_end
   ////
 
-  if (not value.isMember("range_end")) {
+  if (!value.isMember("range_end")) {
     errors->add(ref, "Property is missing: range_end");
   } else {
     const Json::Value& value_2 = value["range_end"];
-    if (not value_2.isDouble()) {
+    if (!value_2.isDouble()) {
       constexpr auto expected_but_got("Expected a double, but got: ");
 
       errors->add(std::string(ref).append("/range_end"),
@@ -388,7 +388,7 @@ Json::Value serialize_sampling(const Sampling& sampling) {
 
   sampling_as_value["bins"] = sampling.bins;
 
-  if (not sampling.inputs.empty()) {
+  if (!sampling.inputs.empty()) {
     Json::Value inputs_as_value;
     for (const auto& kv : sampling.inputs) {
       const std::string& id = kv.first;
