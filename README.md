@@ -50,13 +50,22 @@ conan install ../src/cpp
 
 Run CMake (Linux):
 ```bash
-cmake ../src/cpp -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+cmake \
+    ../src/cpp \
+    -G "Unix Makefiles" \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
 cmake --build .
 ```
 
 or CMake in Windows:
 ```bash
-cmake ../src/cpp -G "Visual Studio 16"
+cmake \
+    ../src/cpp \
+    -G "Visual Studio 16" \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
 cmake --build . --config Release
 ```
 
@@ -69,24 +78,33 @@ make install
 You can overwrite the release directory by supplying `-DCMAKE_INSTALL_PREFIX` 
 to the cmake command.
 
-We check the formatting with clang-format. Please install clang-format separately.
-The following build target fails if the formatting is incorrect. Always run it before
-committing:
+We check the formatting with clang-format. Please install clang-format 
+separately. The following build target fails if the formatting is incorrect. 
+Always run it before committing:
 ```bash
 make format
 ```
 
-Please see https://docs.conan.io/en/latest/getting_started.html for more information on Conan.
+We lint the code with clang-tidy. Please install clang-tidy separately.
+The following build target fails if the linting rules are broken.
+Always run it before comitting:
+```bash
+make tidy
+```
+
+Please see https://docs.conan.io/en/latest/getting_started.html for more 
+information on Conan.
 
 Mapry
 -----
 Mapry schemas go into `src/mapry/`.
 
-The generated code is checked into the repository. These steps are only necessary
-if you want to re-generate the code (*e.g.*, if a schema needs to change).
+The generated code is checked into the repository. These steps are only 
+necessary if you want to re-generate the code (*e.g.*, if a schema needs to 
+change).
 
-To generate the code, first create a Python virtual environment where development
-tools will be installed:
+To generate the code, first create a Python virtual environment where 
+development tools will be installed:
 
 ```bash
 cd {repository root}
