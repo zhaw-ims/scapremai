@@ -26,17 +26,26 @@ IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     SET(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/../../release" CACHE PATH "default install directory" FORCE)
 ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
-add_library(scapremai_mapried_sampling
+##
+# Targets
+##
+
+add_library(mapried_sampling
         STATIC
-        scapremai/mapried/sampling/jsoncpp.cpp
-        scapremai/mapried/sampling/jsoncpp.h
-        scapremai/mapried/sampling/parse.cpp
-        scapremai/mapried/sampling/parse.h
-        scapremai/mapried/sampling/types.h)
+        mapried/sampling/jsoncpp.cpp
+        mapried/sampling/jsoncpp.h
+        mapried/sampling/parse.cpp
+        mapried/sampling/parse.h
+        mapried/sampling/types.h)
 
 add_executable(scapremai_sampler scapremai/sampler.cpp)
 target_link_libraries(scapremai_sampler
-        scapremai_mapried_sampling
+        mapried_sampling
         ${CONAN_LIBS})
+
+
+##
+# Install
+##
 
 install(TARGETS scapremai_sampler DESTINATION bin)

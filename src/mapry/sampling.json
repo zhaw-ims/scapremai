@@ -2,7 +2,7 @@
   "name": "Sampling",
   "description": "specifies the sampling of the physical model.",
   "cpp": {
-    "namespace": "scapremai::mapried::sampling",
+    "namespace": "mapried::sampling",
     "path_as": "boost::filesystem::path",
     "optional_as": "boost::optional",
     "datetime_library": "date.h"
