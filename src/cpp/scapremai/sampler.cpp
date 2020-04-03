@@ -2,9 +2,9 @@
  * Sample the data points from a given physical model.
  */
 
-#include "scapremai/mapried/sampling/jsoncpp.h"
-#include "scapremai/mapried/sampling/parse.h"
-#include "scapremai/mapried/sampling/types.h"
+#include "mapried/sampling/jsoncpp.h"
+#include "mapried/sampling/parse.h"
+#include "mapried/sampling/types.h"
 
 #include <fmt/format.h>
 #include <json/json.h>
@@ -37,10 +37,10 @@ int main_impl(const Args& a) {
     return 1;
   }
 
-  scapremai::mapried::sampling::Sampling sampling;
-  scapremai::mapried::sampling::parse::Errors errors(1024);
-  scapremai::mapried::sampling::jsoncpp::sampling_from(sampling_root, "#",
-                                                       &sampling, &errors);
+  mapried::sampling::Sampling sampling;
+  mapried::sampling::parse::Errors errors(1024);
+  mapried::sampling::jsoncpp::sampling_from(sampling_root, "#", &sampling,
+                                            &errors);
 
   if (not errors.empty()) {
     std::vector<std::string> lines;
