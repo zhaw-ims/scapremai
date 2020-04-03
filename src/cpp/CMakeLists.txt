@@ -18,6 +18,14 @@ endif ()
 add_custom_target(
         format
         COMMAND ${CMAKE_SOURCE_DIR}/run-clang-format.py -r ${CMAKE_SOURCE_DIR}/scapremai
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
+
+find_program(RUN_CLANG_TIDY_PY NAMES run-clang-tidy-6.0.py run-clang-tidy.py)
+add_custom_target(
+        tidy
+        COMMAND ${RUN_CLANG_TIDY_PY} -p=${CMAKE_BINARY_DIR} ${CMAKE_SOURCE_DIR}/scapremai
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
 include_directories(${CMAKE_SOURCE_DIR})

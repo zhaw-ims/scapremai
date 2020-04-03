@@ -6,12 +6,12 @@
 #include "mapried/sampling/parse.h"
 #include "mapried/sampling/types.h"
 
-#include <fmt/format.h>
-#include <json/json.h>
-#include <spdlog/spdlog.h>
 #include <boost/algorithm/string/join.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/program_options.hpp>
+#include <fmt/format.h>
+#include <json/json.h>
+#include <spdlog/spdlog.h>
 
 #include <iostream>
 
